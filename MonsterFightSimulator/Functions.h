@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+void intro();
+
 class Monstre {
 
 public:
@@ -13,7 +15,13 @@ public:
     int def;
     int vit;
     void show_stat();
+    void initialize();
 };
+
+void stats_panel();
+
+Monstre selection(int i);
+
 
 int damage_calculation(Monstre m1, Monstre m2);
 
