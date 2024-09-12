@@ -11,7 +11,7 @@ int main()
 	int monstre1;
 	int monstre2;
 
-		//User choose both of the monsters
+	//User choose both of the monsters
 	std::cout << "1: Goblin \n2: Orc \n3: Troll\n";
 	std::cout << "Choose the first monster.\n";
 	std::cin >> monstre1;
@@ -34,12 +34,12 @@ int main()
 
 
 		//Damage done to both monsters, first the slowest and then the other one.
-		if(m1.vit > m2.vit)
+		if (m1.vit > m2.vit)
 		{
 			m2.vie -= damage_calculation(m1, m2);
 			m1.vie -= damage_calculation(m2, m1);
 		}
-		else if(m2.vit > m1.vit)
+		else if (m2.vit > m1.vit)
 		{
 			m1.vie -= damage_calculation(m2, m1);
 			m2.vie -= damage_calculation(m1, m2);
@@ -71,3 +71,4 @@ int main()
 		system("cls");
 
 	} while (m1.vie > 0 && m2.vie > 0);
+}
