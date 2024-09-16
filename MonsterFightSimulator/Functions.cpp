@@ -27,7 +27,7 @@ void Monstre::show_stat()
 Monstre selection(int i)
 {
 
-	Monstre m = Monstre("", 0, 0, 0, 0);
+	Monstre m;
 
 	switch (i)
 	{
@@ -40,19 +40,25 @@ Monstre selection(int i)
 	case 3:
 		m = Troll;
 		break;
-	default:
-		std::cout << "Invalid choice\n";
-		return m;
 	}
+	return m;
+
 }
 
 int damage_calculation(Monstre m1, Monstre m2)
 {
-	int damage;
+	int damage = 0;
+	int i = (std::rand() % 2);
 
-	damage = m1.att - m2.def;
-	std::cout << m2.name << " loses " << damage << " health.\n";
-	m2.show_stat();
+	if(m2.name == "Goblin" && i == 0)
+	{
+		std::cout << m2.name << " dodges the attack.\n";
+	}
+	else
+	{
+		damage = m1.att - m2.def;
+		std::cout << m2.name << " loses " << damage << " health.\n";
+	}
 	return damage;
 }
 
@@ -65,8 +71,8 @@ void intro()
 	system("cls");
 
 	std::cout << "You have the choice between 3 different beasts\n\n";
-	std::cout << "First is the Goblin, a small and fast creature\n\nSecond is the Orc, an average size beast with a thrust worthy stick to smack people with\n\nThird is the Troll, an enormous monster the size of a mountains\n\n";
-	std::cout << "If you want ot see their stats press S, if you want to begin the game press any other letter\n";
+	std::cout << "First is the Goblin, a small and fast creature capable of dodging\n\nSecond is the Orc, an average size beast with a thrust worthy stick to smack people with\n\nThird is the Troll, an enormous monster the size of a mountain\n\n";
+	std::cout << "If you want to see their stats press S, if you want to begin the game press any other letter\n";
 
 	std::cin >> reponse;
 

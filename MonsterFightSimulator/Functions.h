@@ -8,6 +8,7 @@ void intro();
 class Monstre {
 
 public:
+    Monstre(){}
     Monstre(std::string name, int vie, int att, int def, int vit);
     std::string name;
     int vie;
@@ -15,7 +16,6 @@ public:
     int def;
     int vit;
     void show_stat();
-    void initialize();
 };
 
 void stats_panel();

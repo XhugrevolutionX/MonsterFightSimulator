@@ -8,21 +8,46 @@ int main()
 
 	intro();
 
-	int monstre1;
-	int monstre2;
+	int reponse;
+	int round = 0;
+	Monstre m1;
+	Monstre m2;
 
-	//User choose both of the monsters
-	std::cout << "1: Goblin \n2: Orc \n3: Troll\n";
-	std::cout << "Choose the first monster.\n";
-	std::cin >> monstre1;
+	while (true)
+	{
+		//User choose both of the monsters
+		std::cout << "1: Goblin \n2: Orc \n3: Troll\n";
+		std::cout << "Choose the first monster.\n";
+		std::cin >> reponse;
 
-	Monstre m1 = selection(monstre1);
+		if (reponse == 1 || reponse == 2 || reponse == 3)
+		{
+			m1 = selection(reponse);
+			break;
+		}
+		else
+		{
+			std::cout << "Invalid choice\n";
+		}
+	}
 
-	std::cout << "1: Goblin \n2: Orc \n3: Troll\n";
-	std::cout << "Choose the second monster.\n";
-	std::cin >> monstre2;
+	while (true)
+	{
+		//User choose both of the monsters
+		std::cout << "1: Goblin \n2: Orc \n3: Troll\n";
+		std::cout << "Choose the second monster.\n";
+		std::cin >> reponse;
 
-	Monstre m2 = selection(monstre2);
+		if (reponse == 1 || reponse == 2 || reponse == 3)
+		{
+			m2 = selection(reponse);
+			break;
+		}
+		else
+		{
+			std::cout << "Invalid choice\n";
+		}
+	}
 
 	system("cls");
 
@@ -67,8 +92,24 @@ int main()
 		if (m2.vie < 0)
 			m2.vie = 0;
 
+		std::cout << "\n";
+		m1.show_stat();
+		m2.show_stat();
+
 		std::cin.get();
 		system("cls");
 
+		round++;
+
 	} while (m1.vie > 0 && m2.vie > 0);
+	if (m1.vie == 0)
+	{
+		std::cout << m2.name << " wins in " << round << " rounds";
+	}
+	else
+	{
+		std::cout << m1.name << " wins in " << round << " rounds";
+	}
+		
+
 }
