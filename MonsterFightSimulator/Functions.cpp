@@ -45,20 +45,21 @@ Monstre selection(int i)
 
 }
 
-int damage_calculation(Monstre m1, Monstre m2)
+int Monstre::attack(Monstre m)
 {
 	int damage = 0;
 	int i = (std::rand() % 2);
 
-	if(m2.name == "Goblin" && i == 0)
+	if (m.name == "Goblin" && i == 0)
 	{
-		std::cout << m2.name << " dodges the attack.\n";
+		std::cout << m.name << " dodges the attack.\n";
 	}
 	else
 	{
-		damage = m1.att - m2.def;
-		std::cout << m2.name << " loses " << damage << " health.\n";
+		damage = att - m.def;
+		std::cout << m.name << " loses " << damage << " health.\n";
 	}
+
 	return damage;
 }
 

@@ -16,13 +16,12 @@ public:
     int def;
     int vit;
     void show_stat();
+    int attack(Monstre m);
 };
 
 void stats_panel();
 
 Monstre selection(int i);
 
-
-int damage_calculation(Monstre m1, Monstre m2);
 
 #endif

@@ -13,9 +13,9 @@ int main()
 	Monstre m1;
 	Monstre m2;
 
+	//User choose both of the monsters
 	while (true)
 	{
-		//User choose both of the monsters
 		std::cout << "1: Goblin \n2: Orc \n3: Troll\n";
 		std::cout << "Choose the first monster.\n";
 		std::cin >> reponse;
@@ -33,7 +33,6 @@ int main()
 
 	while (true)
 	{
-		//User choose both of the monsters
 		std::cout << "1: Goblin \n2: Orc \n3: Troll\n";
 		std::cout << "Choose the second monster.\n";
 		std::cin >> reponse;
@@ -61,13 +60,13 @@ int main()
 		//Damage done to both monsters, first the slowest and then the other one.
 		if (m1.vit > m2.vit)
 		{
-			m2.vie -= damage_calculation(m1, m2);
-			m1.vie -= damage_calculation(m2, m1);
+			m2.vie -= m1.attack(m2);
+			m1.vie -= m2.attack(m1);
 		}
 		else if (m2.vit > m1.vit)
 		{
-			m1.vie -= damage_calculation(m2, m1);
-			m2.vie -= damage_calculation(m1, m2);
+			m1.vie -= m2.attack(m1);
+			m2.vie -= m1.attack(m2);
 		}
 		//If they have the same speed we choose randomly between the two
 		else
@@ -77,12 +76,12 @@ int main()
 			switch (i)
 			{
 			case 0:
-				m2.vie -= damage_calculation(m1, m2);
-				m1.vie -= damage_calculation(m2, m1);
+				m2.vie -= m1.attack(m2);
+				m1.vie -= m2.attack(m1);
 				break;
 			case 1:
-				m1.vie -= damage_calculation(m2, m1);
-				m2.vie -= damage_calculation(m1, m2);
+				m1.vie -= m2.attack(m1);
+				m2.vie -= m1.attack(m2);
 				break;
 			}
 		}
