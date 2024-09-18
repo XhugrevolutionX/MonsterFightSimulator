@@ -57,6 +57,8 @@ int Monstre::attack(Monstre m)
 	else
 	{
 		damage = att - m.def;
+		if (damage < 0)
+			damage = 0;
 		std::cout << m.name << " loses " << damage << " health.\n";
 	}
 
